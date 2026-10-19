@@ -4,9 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- font Awesome -->
+
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+    <!-- responsive -->
+     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+
+     <!-- css -->
+
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <p><i class="fa-solid fa-square-h"></i></p>
+            <p class="title">HelpDesk</p>
+        </div>
+        <nav>
+            <p class="menue"><i class="fa-solid fa-bars"></i></p>
+        </nav>
+    </header>
+    <main>
+        <div class="paragraphs">
+                    <h1>Gestion des demandes</h1>
+        <p class="suivez">Suivez et gérez les incidents informatiques.</p>
+        </div>
+
+        <!-- formulair -->
+         <form action="">
+            <h3 class = "form-title">Créer une demande</h3>
+            <p class="form-description">Décrivez votre problème informatique.</p>
+            <div class="all-input">
+                <div class="input">
+                    <label for="">Titre du problème *</label>
+                    <input type="text" required placeholder="Connexion Wi-Fi instable">
+                </div>
+                <div class="input">
+                    <label for="">Catégorie *</label>
+                    <select class="select" name="" id="">
+                        <option value="">Reseau</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label for="">Priorité *</label>
+                    <select class="select" name="" id="" >
+                        <option value="">Haute</option>
+                    </select>
+                </div>
+                <div class="aria">
+                    <label for="">Description *</label>
+                    <textarea class="area" name="" id="" rows="2" placeholder="Décrivez votre problème..."></textarea>
+                </div>
+            </div>
+
+            
+            <div class="submit">
+                <input type="submit" value="＋  Ajouter la demande">
+            </div>
+         </form>
+         <p class="list">Liste des demandes</p>
+
+    </main>
     
     <script src="js/scripte.js"></script>
 </body>

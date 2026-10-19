@@ -1,0 +1,60 @@
+@media (min-width : 768px) {
+main form .all-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+nav .menue {
+    display: none;
+}
+main .paragraphs h1 {
+    font-size: 26px;
+}
+main .paragraphs .suivez {
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+.form-title {
+    font-size: 20px;
+}
+.form-description {
+    font-size: 12px;
+}
+ form .submit {
+    display: flex;
+    justify-content: flex-end;
+
+}
+form .submit input {
+    width: 30%;
+}
+}
+@media (min-width : 1024px) {
+nav .menue {
+    display: none;
+}
+main .paragraphs h1 {
+    font-size: 28px;
+}
+main .paragraphs .suivez {
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+.form-title {
+    font-size: 19px;
+}
+
+main form .all-input {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+}
+form .all-input .aria {
+    grid-column: 1 / -1;
+}
+main form label {
+    font-size: 14px;
+}
+
+
+}
