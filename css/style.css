@@ -142,3 +142,108 @@ main .list {
     font-weight: 700;
     margin-left: 15px;
 }
+.list-entete {
+    display: flex;
+    justify-content: space-between;
+}
+.list-entete .compteur {
+    margin-right: 2%;
+    margin-top: 1%;
+}
+
+/* ******************************* */ 
+/* parrent of  card */
+.parrent {
+    border: 1px solid gray;
+    margin-inline: 7px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background:var(--white);
+
+}
+.tag {
+    margin-left: 15px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.caption {
+    color: #8D99A8;
+    margin-left: 15px;
+    margin-top: 9px;
+}
+.type {
+    margin-left: 15px;
+    margin-top: 20px;
+    background-color: #d6dfeb;
+    border-radius: 20px;
+    width: 29%;
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    align-items: center;
+}
+.niveau {
+    margin-left: 15px;
+    margin-top: 20px;
+    background-color: #64748B;
+    border-radius: 20px;
+    width: 29%;
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    align-items: center;
+}
+.flexible {
+    display: flex;
+    margin-bottom: 10px;
+        padding-bottom: 16px;
+    border-bottom: 1px solid #EDF0F4;
+}
+.icon-card {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #E8EEFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        margin-left: 8px;
+    margin-top: 8px;
+}
+.icon-card i {
+    margin: 0;
+    font-size: 18px;
+    color: #5B6B85;
+}
+/* niveau de priorite */
+.niveau.haute {
+    background: var(--lightred);
+    color: var(--sublightred);
+}
+.niveau.normale {
+    background: var(--lightyellow);
+    color: var(--yellow);
+}
+.niveau.basse {
+    background-color: #7eb59f;
+    color: #166544;
+}
+/* bottun modifier et suprimer */
+.btns {
+    display: flex;
+    justify-content: space-between;
+        margin-left: 45%;
+    margin-right: 7%;
+
+        margin-bottom: 4%;
+}
+.sup {
+        color: #CC626A;
+            font-size: 11px;
+            margin-top: 1%;
+}
+.modif {
+    color: #617084;
+        font-size: 13px;
+}
