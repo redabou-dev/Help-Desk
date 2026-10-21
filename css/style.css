@@ -1,0 +1,144 @@
+:root {
+    --white:#FFFFFF;
+  --darkblue: #252F3E;
+  --lightred: #FFF0E8;
+  --sublightred: #BA6444;
+  --red: #CC626A;
+  --lightyellow: #FFF5DF;
+  --yellow: #A67A2B;
+  --lightgreen: #E8F6EE;
+  --lightgreen: #388867;
+  --grayboxbackground: #EDF0F4;
+  --graytext: #8A95A4;
+  --textcolor:#202A38;
+  --purplebackground:#F1EAF9;
+}
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: var(  --grayboxbackground);
+     font-family: "Inter", sans-serif;
+    
+}
+/* header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.fa-solid, .fas {
+    font-weight: 900;
+        margin: 10px;
+    font-size: 22px;
+}
+.logo {
+    display: flex;
+}
+.logo .title {
+    margin-top: 10px;
+}
+/* main */
+main .paragraphs {
+    margin-top: 20px;
+}
+main h1 {
+    margin-left: 15px;
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+main .suivez {
+    margin-left: 15px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8792A1;
+}
+/* formulair */
+form .all-input {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+form {
+    margin-inline: 10px;
+    margin-top: 15px;
+    background: var(--white);
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+
+}
+form .form-title {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 18px;
+
+}
+form .form-description {
+     margin-left: 15px;
+     font-size: 11px;
+     font-weight: 400;
+     color: #8A95A4;
+}
+form label {
+    display: block;
+    margin-left: 7px;
+    margin-bottom: 10px;
+    margin-top: 17px;
+        font-size: 12px;
+    font-weight: 700;
+}
+form input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    padding: 10px;
+}
+form .select {
+        width: 100%;
+    outline: none;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    padding: 10px;
+}
+form .area {
+            width: 100%;
+    outline: none;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+     resize: none;
+}
+form .aria {
+    margin-inline: 7px;
+}
+form .input {
+    margin-inline:6px ;
+}
+form .submit {
+    margin-inline: 5px;
+    margin-bottom: 15px;
+}
+form .submit input {
+    background:var(--darkblue);
+    color:var(--white);
+
+}
+/* liste des demandes */
+main .list {
+    font-size: 19px;
+    font-weight: 700;
+    margin-left: 15px;
+}
