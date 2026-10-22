@@ -28,7 +28,19 @@ main .paragraphs .suivez {
 form .submit input {
     width: 30%;
 }
+
+ .liste{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
 }
+}
+
+
+
+
+
+
 @media (min-width : 1024px) {
 nav .menue {
     display: none;
@@ -54,6 +66,12 @@ form .all-input .aria {
 }
 main form label {
     font-size: 14px;
+}
+
+ .liste{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 
