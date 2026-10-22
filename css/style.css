@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 body {
-    background: var(  --grayboxbackground);
+    background-color:  #F7F8FA;
      font-family: "Inter", sans-serif;
     
 }
@@ -153,6 +153,7 @@ main .list {
 
 /* ******************************* */ 
 /* parrent of  card */
+
 .parrent {
     border: 1px solid gray;
     margin-inline: 7px;
@@ -246,4 +247,17 @@ main .list {
 .modif {
     color: #617084;
         font-size: 13px;
+        
+}
+/* icon and id card */
+.card-haut {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.id-Card {
+    /* font-size: 13px; */
+    font-weight: 700;
+    color: var(--graytext);
+    margin-right:7%;
 }
