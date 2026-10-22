@@ -47,9 +47,19 @@ function afficherDemandes() {
     // aficher icon
     const icon = document.createElement("i")
     icon.className = "fa-solid " + icones[demande.categorie];
-    const iconBox = document.createElement("span")
-    iconBox.className = "icon-card"
-    iconBox.append(icon)
+    const iconBox = document.createElement("span");
+    iconBox.className = "icon-card";
+    iconBox.append(icon);
+
+
+    const number = document.createElement("div");
+number.className = "id-Card";
+number.textContent = "HD-00" + demande.id;
+
+    const cardHaut = document.createElement("div")
+    cardHaut.className = "card-haut";
+    cardHaut.append(iconBox,number)
+
 
 
 
@@ -73,13 +83,14 @@ function afficherDemandes() {
     const modifier = document.createElement("div")
     modifier.className = "modif"
     modifier.textContent = "✎ Modifier"
-    const suprime = document.createElement("div")
+    const suprime = document.createElement("button")
         suprime.className = "sup"
+        suprime.type = "button";
             suprime.textContent = "♜ Supprimer"
             buttons.append(modifier,suprime)
             
-            
-            
+
+
             const cardCate = document.createElement("div");
             cardCate.className = "type";
             cardCate.textContent = demande.categorie;
@@ -87,11 +98,17 @@ function afficherDemandes() {
             const cardPrio = document.createElement("div");
             cardPrio.className = "niveau  Haute " + demande.priorite.toLocaleLowerCase();
             cardPrio.textContent = demande.priorite;
-            
+
+
             tags.append(cardCate, cardPrio);
-            cardContainer.append(iconBox,card, cardDesc, tags,buttons);
+            cardContainer.append(cardHaut,card, cardDesc, tags,buttons);
             liste.append(cardContainer);
-  });
+            cardContainer.dataset.id = demande.id;
+          });
+
+compteur.textContent = demandes.length + " demandes";
+
+
 }
 
 afficherDemandes();
@@ -103,12 +120,12 @@ button.addEventListener("click", (event) => {
   const categoriee = categorie.value;
   const prioritee = priorite.value;
   const descriptionee = description.value;
-  if (value && categorie && priorite && description == "") {
-    alert("une champ il rest vide");
-    return;
-  }
+  // if (value || categorie || priorite || description == "") {
+  //   alert("une champ il rest vide");
+  //   return;
+  // }
 
-  // 1. Create a new request object
+  // 1. Create a new card 
 const nouvelleDemande = {
   id: demandes.length + 1,
   titre: value,
@@ -122,31 +139,6 @@ demandes.push(nouvelleDemande);
 
 // 3. Display all requests again
 afficherDemandes();
-
-  // we creat th div that we put each one of card element and one container insid it we put card with all her info
-  // const tags = document.createElement("div");
-  // tags.className = "flexible";
-  // const cardContainer = document.createElement("article");
-  // cardContainer.className = "parrent";
-  // const card = document.createElement("div");
-  // card.className = "tag";
-  // const cardDesc = document.createElement("div");
-  // cardDesc.className = "caption";
-  // const cardCate = document.createElement("div");
-  // cardCate.className = "type";
-  // const cardPrio = document.createElement("div");
-  // cardPrio.className = "niveau";
-  // card.textContent = value;
-  // cardDesc.textContent = descriptionee;
-  // cardCate.textContent = categoriee;
-  // cardPrio.textContent = prioritee;
-  // // liste.append(card);
-  // // liste.append(cardDesc);
-  // // liste.append(cardCate);
-  // // liste.append(cardPrio);
-  // // append tags to div for we can costomize
-  // cardContainer.append(card, cardDesc, tags);
-  // tags.append(cardCate, cardPrio);
-  // liste.append(cardContainer);
   titre.value = "";
 });
+
