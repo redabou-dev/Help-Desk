@@ -28,7 +28,7 @@ const icones = {
   "Logiciel": "fa-microchip",
   "Matériel": "fa-keyboard",
 };
-
+let idModification = null;
 // we get all element we need by id
 const liste = document.getElementById("liste");
 const compteur = document.getElementById("compteur");
@@ -129,10 +129,18 @@ number.textContent = "HD-00" + demande.id;
 });  
   // modifacation function 
   modifier.addEventListener("click", () => {
+     idModification = demande.id
+      titre.value = demande.titre;
+  description.value = demande.description;
+  categorie.value = demande.categorie;
+  priorite.value = demande.priorite;
+  button.value = "MODIFIER";
 
-    
 
   })
+
+
+
  });
 
 compteur.textContent = demandes.length + " demandes";
@@ -143,22 +151,58 @@ compteur.textContent = demandes.length + " demandes";
 afficherDemandes();
 
 // *****
+
 button.addEventListener("click", (event) => {
   event.preventDefault();
   const value = titre.value;
   const categoriee = categorie.value;
   const prioritee = priorite.value;
   const descriptionee = description.value;
-  if (value || categorie || priorite || description == "") {
+   let valide = true;
+
+  if (value === "") {
     errorMessage.textContent = "champ required";
-    categorieError.textContent = "champ required";
-    prioError.textContent = "champ required";
-    descriptionError.textContent = "champ required";
-    return;
+    valide = false;
+  } else {
+    errorMessage.textContent = "";
   }
 
+  if (descriptionee === "") {
+    descriptionError.textContent = "champ required";
+    valide = false;
+  } else {
+    descriptionError.textContent = "";
+  }
+    if (!valide) {
+    return;
+  }
+  if (idModification !== null) {
+  const index = demandes.findIndex(
+    (item) => item.id === idModification
+  );
+
+  if (index !== -1) {
+    demandes[index].titre = titre.value;
+    demandes[index].description = description.value;
+    demandes[index].categorie = categorie.value;
+    demandes[index].priorite = priorite.value;
+  }
+
+  idModification = null;
+  button.textContent = "Ajouter";
+
+  afficherDemandes();
+
+  titre.value = "";
+  description.value = "";
+
+  return;
+}
+
+
+
   // 1. Create a new card 
-const nouvelleDemande = {
+  const nouvelleDemande = {
   id: demandes.length + 1,
   titre: value,
   description: descriptionee,
@@ -171,6 +215,7 @@ demandes.push(nouvelleDemande);
 
 // 3. Display all requests again
 afficherDemandes();
-  titre.value = "";
+titre.value = "";
+description.value = ""
 });
 
