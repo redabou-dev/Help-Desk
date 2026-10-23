@@ -35,9 +35,13 @@ const compteur = document.getElementById("compteur");
 const vide = document.getElementById("vide");
 const button = document.getElementById("btn");
 const titre = document.getElementById("titre");
+const errorMessage = document.getElementById("error-title");
 const categorie = document.getElementById("categorie");
+const categorieError = document.getElementById("error-categorie")
 const priorite = document.getElementById("priorite");
+const prioError = document.getElementById("error-priorite")
 const description = document.getElementById("description");
+const descriptionError = document.getElementById("error-description")
 // add event to the button for when click new ticket created
 
 function afficherDemandes() {
@@ -80,8 +84,9 @@ number.textContent = "HD-00" + demande.id;
     const buttons = document.createElement("div")
     buttons.className = "btns"
 
-    const modifier = document.createElement("div")
+    const modifier = document.createElement("button")
     modifier.className = "modif"
+    modifier.type = "button";
     modifier.textContent = "✎ Modifier"
     const suprime = document.createElement("button")
         suprime.className = "sup"
@@ -103,8 +108,32 @@ number.textContent = "HD-00" + demande.id;
             tags.append(cardCate, cardPrio);
             cardContainer.append(cardHaut,card, cardDesc, tags,buttons);
             liste.append(cardContainer);
-            cardContainer.dataset.id = demande.id;
-          });
+
+            const idDemande = demande.id;
+
+            suprime.addEventListener("click", () => {
+  const confirmation = confirm(
+    "Voulez-vous vraiment supprimer cette demande ?"
+  );
+
+  if (confirmation) {
+    const index = demandes.findIndex(
+      (item) => item.id === idDemande
+    );
+
+    if (index !== -1) {
+      demandes.splice(index, 1);
+      afficherDemandes();
+    }
+  }
+});  
+  // modifacation function 
+  modifier.addEventListener("click", () => {
+
+    
+
+  })
+ });
 
 compteur.textContent = demandes.length + " demandes";
 
@@ -120,10 +149,13 @@ button.addEventListener("click", (event) => {
   const categoriee = categorie.value;
   const prioritee = priorite.value;
   const descriptionee = description.value;
-  // if (value || categorie || priorite || description == "") {
-  //   alert("une champ il rest vide");
-  //   return;
-  // }
+  if (value || categorie || priorite || description == "") {
+    errorMessage.textContent = "champ required";
+    categorieError.textContent = "champ required";
+    prioError.textContent = "champ required";
+    descriptionError.textContent = "champ required";
+    return;
+  }
 
   // 1. Create a new card 
 const nouvelleDemande = {
