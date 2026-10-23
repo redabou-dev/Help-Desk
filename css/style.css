@@ -146,6 +146,10 @@ main .list {
     display: flex;
     justify-content: space-between;
 }
+.compteur {
+        background-color: #EBEFF4;
+        border-radius: 4px;
+}
 .list-entete .compteur {
     margin-right: 2%;
     margin-top: 1%;
@@ -155,7 +159,6 @@ main .list {
 /* parrent of  card */
 
 .parrent {
-    border: 1px solid gray;
     margin-inline: 7px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -199,7 +202,7 @@ main .list {
     display: flex;
     margin-bottom: 10px;
         padding-bottom: 16px;
-    border-bottom: 1px solid #EDF0F4;
+    border-bottom: 2px solid #EDF0F4;
 }
 .icon-card {
     width: 52px;
@@ -209,8 +212,8 @@ main .list {
     display: flex;
     justify-content: center;
     align-items: center;
-        margin-left: 8px;
-    margin-top: 8px;
+        margin-left: 20px;
+    margin-top: 13px;
 }
 .icon-card i {
     margin: 0;
