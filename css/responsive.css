@@ -71,8 +71,31 @@ main form label {
  .liste{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
+        gap: 8px;
+        margin-inline: 28px;
 }
+.flexible {
+    margin-top: 31px;
+    margin-bottom: 15px;
+}
+.list-entete .compteur {
+    margin-right: 2%;
+    margin-top: 0%;
+    margin-bottom: 20px;
+}
+.niveau.basse {
+        margin-bottom: 20px;
+}
+.niveau.normale {
+        margin-bottom: 20px;
+}
+.niveau.haute {
+        margin-bottom: 20px;
+}
+
+
+
+
 
 
 }
