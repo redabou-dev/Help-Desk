@@ -22,26 +22,24 @@ const demandes = [
   },
 ];
 
-
 const icones = {
-  "Réseau": "fa-wifi",
-  "Logiciel": "fa-microchip",
-  "Matériel": "fa-keyboard",
+  Réseau: "fa-wifi",
+  Logiciel: "fa-microchip",
+  Matériel: "fa-keyboard",
 };
 let idModification = null;
 // we get all element we need by id
 const liste = document.getElementById("liste");
 const compteur = document.getElementById("compteur");
-const vide = document.getElementById("vide");
 const button = document.getElementById("btn");
 const titre = document.getElementById("titre");
-const errorMessage = document.getElementById("error-title");
 const categorie = document.getElementById("categorie");
-const categorieError = document.getElementById("error-categorie")
 const priorite = document.getElementById("priorite");
-const prioError = document.getElementById("error-priorite")
 const description = document.getElementById("description");
-const descriptionError = document.getElementById("error-description")
+
+const descriptionError = document.getElementById("error-description");
+const errorMessage = document.getElementById("error-title");
+
 // add event to the button for when click new ticket created
 
 function afficherDemandes() {
@@ -49,23 +47,19 @@ function afficherDemandes() {
 
   demandes.forEach((demande) => {
     // aficher icon
-    const icon = document.createElement("i")
+    const icon = document.createElement("i");
     icon.className = "fa-solid " + icones[demande.categorie];
     const iconBox = document.createElement("span");
     iconBox.className = "icon-card";
     iconBox.append(icon);
 
-
     const number = document.createElement("div");
-number.className = "id-Card";
-number.textContent = "HD-00" + demande.id;
+    number.className = "id-Card";
+    number.textContent = "HD-00" + demande.id;
 
-    const cardHaut = document.createElement("div")
+    const cardHaut = document.createElement("div");
     cardHaut.className = "card-haut";
-    cardHaut.append(iconBox,number)
-
-
-
+    cardHaut.append(iconBox, number);
 
     const cardContainer = document.createElement("article");
     cardContainer.className = "parrent";
@@ -80,6 +74,16 @@ number.textContent = "HD-00" + demande.id;
     const tags = document.createElement("div");
     tags.className = "flexible";
 
+    const cardCate = document.createElement("div");
+    cardCate.className = "type";
+    cardCate.textContent = demande.categorie;
+
+    const cardPrio = document.createElement("div");
+    cardPrio.className =
+      "niveau  Haute " + demande.priorite.toLocaleLowerCase();
+    cardPrio.textContent = demande.priorite;
+
+
     // creat suprime et modifier
     const buttons = document.createElement("div")
     buttons.className = "btns"
@@ -93,59 +97,43 @@ number.textContent = "HD-00" + demande.id;
         suprime.type = "button";
             suprime.textContent = "♜ Supprimer"
             buttons.append(modifier,suprime)
-            
 
 
-            const cardCate = document.createElement("div");
-            cardCate.className = "type";
-            cardCate.textContent = demande.categorie;
-            
-            const cardPrio = document.createElement("div");
-            cardPrio.className = "niveau  Haute " + demande.priorite.toLocaleLowerCase();
-            cardPrio.textContent = demande.priorite;
+                tags.append(cardCate, cardPrio);
+    cardContainer.append(cardHaut, card, cardDesc, tags, buttons);
+          
 
 
-            tags.append(cardCate, cardPrio);
-            cardContainer.append(cardHaut,card, cardDesc, tags,buttons);
-            liste.append(cardContainer);
+    liste.append(cardContainer);
 
-            const idDemande = demande.id;
+    const idDemande = demande.id;
 
-            suprime.addEventListener("click", () => {
-  const confirmation = confirm(
-    "Voulez-vous vraiment supprimer cette demande ?"
-  );
+    suprime.addEventListener("click", () => {
+      const confirmation = confirm(
+        "Voulez-vous vraiment supprimer cette demande ?",
+      );
 
-  if (confirmation) {
-    const index = demandes.findIndex(
-      (item) => item.id === idDemande
-    );
+      if (confirmation) {
+        const index = demandes.findIndex((item) => item.id === idDemande);
 
-    if (index !== -1) {
-      demandes.splice(index, 1);
-      afficherDemandes();
-    }
-  }
-});  
-  // modifacation function 
-  modifier.addEventListener("click", () => {
-     idModification = demande.id
+        if (index !== -1) {
+          demandes.splice(index, 1);
+          afficherDemandes();
+        }
+      }
+    });
+    // modifacation function
+    modifier.addEventListener("click", () => {
+      idModification = demande.id;
       titre.value = demande.titre;
-  description.value = demande.description;
-  categorie.value = demande.categorie;
-  priorite.value = demande.priorite;
-  button.value = "MODIFIER";
+      description.value = demande.description;
+      categorie.value = demande.categorie;
+      priorite.value = demande.priorite;
+      button.value = "MODIFIER";
+    });
+  });
 
-
-  })
-
-
-
- });
-
-compteur.textContent = demandes.length + " demandes";
-
-
+  compteur.textContent = demandes.length + " demandes";
 }
 
 afficherDemandes();
@@ -158,7 +146,7 @@ button.addEventListener("click", (event) => {
   const categoriee = categorie.value;
   const prioritee = priorite.value;
   const descriptionee = description.value;
-   let valide = true;
+  let valide = true;
 
   if (value === "") {
     errorMessage.textContent = "champ required";
@@ -173,49 +161,44 @@ button.addEventListener("click", (event) => {
   } else {
     descriptionError.textContent = "";
   }
-    if (!valide) {
+  if (!valide) {
     return;
   }
   if (idModification !== null) {
-  const index = demandes.findIndex(
-    (item) => item.id === idModification
-  );
+    const index = demandes.findIndex((item) => item.id === idModification);
 
-  if (index !== -1) {
-    demandes[index].titre = titre.value;
-    demandes[index].description = description.value;
-    demandes[index].categorie = categorie.value;
-    demandes[index].priorite = priorite.value;
+    if (index !== -1) {
+      demandes[index].titre = titre.value;
+      demandes[index].description = description.value;
+      demandes[index].categorie = categorie.value;
+      demandes[index].priorite = priorite.value;
+    }
+
+    idModification = null;
+    button.textContent = "Ajouter";
+
+    afficherDemandes();
+
+    titre.value = "";
+    description.value = "";
+
+    return;
   }
 
-  idModification = null;
-  button.textContent = "Ajouter";
+  // 1. Create a new card
+  const nouvelleDemande = {
+    id: demandes.length + 1,
+    titre: value,
+    description: descriptionee,
+    categorie: categoriee,
+    priorite: prioritee,
+  };
 
+  // 2. Add the new request to the array
+  demandes.push(nouvelleDemande);
+
+  // 3. Display all requests again
   afficherDemandes();
-
   titre.value = "";
   description.value = "";
-
-  return;
-}
-
-
-
-  // 1. Create a new card 
-  const nouvelleDemande = {
-  id: demandes.length + 1,
-  titre: value,
-  description: descriptionee,
-  categorie: categoriee,
-  priorite: prioritee,
-};
-
-// 2. Add the new request to the array
-demandes.push(nouvelleDemande);
-
-// 3. Display all requests again
-afficherDemandes();
-titre.value = "";
-description.value = ""
 });
-
